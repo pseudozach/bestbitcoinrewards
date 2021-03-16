@@ -8,7 +8,7 @@
   </div>
 </template> -->
 
-
+<!-- compactMode -->
 <template>
   <div>
     <vue-good-table
@@ -22,8 +22,7 @@
       :pagination-options="{
         enabled: true,
         perPage: 20
-      }"
-      compactMode/>
+      }"/>
   </div>
 </template>
 
