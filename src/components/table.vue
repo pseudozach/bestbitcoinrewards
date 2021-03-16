@@ -9,12 +9,12 @@
 </template> -->
 
 <!-- compactMode -->
+<!-- :fixed-header="true" -->
 <template>
   <div>
     <vue-good-table
       :columns="columns"
       :rows="rows"
-      :fixed-header="true"
       :search-options="{
         enabled: true,
         placeholder: 'Search Cashback Rates',
@@ -42,6 +42,9 @@
 import 'vue-good-table/dist/vue-good-table.css'
 import { VueGoodTable } from 'vue-good-table';
 
+import Vue from 'vue'
+import VueMeta from 'vue-meta'
+Vue.use(VueMeta)
 // import { db } from '../main'
 
 // Get a RTDB instance
@@ -193,6 +196,7 @@ export default {
           // type: 'percentage',
         },
         {
+          // 📅
           label: 'Updated At',
           field: 'updatedAt',
           type: 'date',
@@ -220,6 +224,47 @@ export default {
   },
   components: {
     VueGoodTable,
+  },
+  metaInfo: {
+    // Children can override the title.
+    title: 'Best Bitcoin Rewards',
+    // Result: My Page Title ← My Site
+    // If a child changes the title to "My Other Page Title",
+    // it will become: My Other Page Title ← My Site
+    // titleTemplate: '%s ← My Site',
+    // Define meta tags here.
+    link: [
+      {rel: 'canonical', href: 'https://www.bestbitcoinrewards.com'}
+    ],
+    meta: [
+      // {http-equiv: 'Content-Type', content: 'text/html; charset=utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {name: 'description', content: 'Comparison table of all bitcoin cashback services including rewards rates.'},
+      // OpenGraph data (Most widely used)
+      {property: 'og:title', content: 'Rewards Comparison ← Best Bitcoin Rewards'},
+      {property: 'og:site_name', content: 'Best Bitcoin Rewards'},
+      // The list of types is available here: http://ogp.me/#types
+      {property: 'og:type', content: 'website'},
+      // Should the the same as your canonical link, see below.
+      {property: 'og:url', content: 'https://www.bestbitcoinrewards.com'},
+      {property: 'og:image', content: 'https://www.bestbitcoinrewards.com/percentage.png'},
+      // Often the same as your meta description, but not always.
+      {property: 'og:description', content: 'Compare all bitcoin cashback services including rewards rates.'},
+
+      // Twitter card
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:site', content: 'https://www.bestbitcoinrewards.com'},
+      {name: 'twitter:title', content: 'Rewards Comparison ← Best Bitcoin Rewards'},
+      {name: 'twitter:description', content: 'Compare all bitcoin cashback services including rewards rates.'},
+      // Your twitter handle, if you have one.
+      {name: 'twitter:creator', content: '@citlayik'},
+      {name: 'twitter:image:src', content: 'https://www.bestbitcoinrewards.com/percentage.png'},
+
+      // Google / Schema.org markup:
+      {itemprop: 'name', content: 'Rewards Comparison ← Best Bitcoin Rewards'},
+      {itemprop: 'description', content: 'Compare all bitcoin cashback services including rewards rates.'},
+      {itemprop: 'image', content: 'https://www.bestbitcoinrewards.com/percentage.png'}
+    ]
   }
 };
 </script>
